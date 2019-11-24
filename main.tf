@@ -3,10 +3,13 @@ locals {
     node_count = 1
     vpc_id       = "vpc-07a3483589f1e7493"
     subnet_id    = "subnet-064d4db5dd3ea9db5"
-    secgrp_id    = "sg-0feb0bdf0ee1fd034"
+    secgrp_id    = data.aws_security_group.vpc_secgrp.id
     key_name     = "test-kube"
     ami_id       = "ami-05c1fa8df71875112"
     secgrp_name  = "kube_vpc_default"
+    region       = "us-east-2"
+
+    availability_zone = local.region + "a"
 }
 
 

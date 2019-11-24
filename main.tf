@@ -6,6 +6,7 @@ locals {
     secgrp_id    = "sg-0feb0bdf0ee1fd034"
     key_name     = "test-kube"
     ami_id       = "ami-05c1fa8df71875112"
+    secgrp_name  = "kube_vpc_default"
 }
 
 

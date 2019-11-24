@@ -9,7 +9,7 @@ locals {
     secgrp_name  = "kube_vpc_default"
     region       = "us-east-2"
 
-    availability_zone = "${local.region}}a"
+    availability_zone = "${local.region}a"
 }
 
 

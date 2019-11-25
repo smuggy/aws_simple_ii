@@ -2,7 +2,7 @@
 locals {
     node_count = 1
     vpc_id       = data.aws_vpc.kube_vpc.id
-    subnet_id    = "subnet-064d4db5dd3ea9db5"
+    subnet_id    = data.aws_subnet.kube_subnet.id
     secgrp_id    = data.aws_security_group.vpc_secgrp.id
     key_name     = "test-kube"
     ami_id       = "ami-05c1fa8df71875112"
@@ -23,6 +23,7 @@ resource "aws_instance" "simple-instance-ii" {
     key_name          = local.key_name
     subnet_id         = local.subnet_id
     user_data         = "si-${format("%02d", count.index)}"
+    
     vpc_security_group_ids = [local.secgrp_id]
 
     root_block_device {

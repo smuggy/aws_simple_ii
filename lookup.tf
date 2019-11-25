@@ -9,6 +9,6 @@ data "aws_vpc" "kube_vpc" {
 }
 
 data "aws_subnet" "kube_subnet" {
-  vpc_id = data.aws_vpc.kube_vpc.id
+  vpc_id            = data.aws_vpc.kube_vpc.id
   availability_zone = local.availability_zone
 }

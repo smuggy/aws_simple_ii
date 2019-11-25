@@ -1,7 +1,7 @@
 
 locals {
     node_count = 1
-    vpc_id       = "vpc-07a3483589f1e7493"
+    vpc_id       = data.aws_vpc.kube_vpc.id
     subnet_id    = "subnet-064d4db5dd3ea9db5"
     secgrp_id    = data.aws_security_group.vpc_secgrp.id
     key_name     = "test-kube"
@@ -17,7 +17,7 @@ resource "aws_instance" "simple-instance-ii" {
 # 18.04 LTS Bionic amd 64 hvm:ebs-ssd
     ami               = local.ami_id
     instance_type     = "t3.nano"
-    availability_zone = "us-east-2a"
+    availability_zone = local.availability_zone
     count             = local.node_count
 
     key_name          = local.key_name

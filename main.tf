@@ -41,3 +41,8 @@ resource "random_string" "random" {
 }
 
 #}
+
+module "base" {
+  source  = "app.terraform.io/podspace/base/tls//rsa_key_pair"
+  version = "0.1.3"
+}
